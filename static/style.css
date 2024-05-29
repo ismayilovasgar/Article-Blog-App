@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+body {
+  background-color: teal;
+  color: white;
+}
+
+.container {
+  width: 1200px;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+a,
+i {
+  color: black;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: white;
+}
+
+.navbar .nav__logo img {
+  width: 60px;
+}
+
+.nav__links ul {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav__links ul li {
+  padding: 8px 12px;
+  margin: 2px;
+  font-size: 24px;
+}
