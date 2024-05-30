@@ -57,15 +57,15 @@
     </div>
 
     {% if messages %} 
-    {% for message in messages %} 
-    {% if message.tags == "warning" %}
-    <div class="alert alert__danger">{{message}}</div>
+      {% for message in messages %} 
+        {% if message.tags == "warning" %}
+        <div class="alert alert__warning">{{message}}</div>
 
-    {% if message.tags == "success" %}
-    <div class="alert alert__success">{{message}}</div>
+        {% else  %}
+        <div class="alert alert__success">{{message}}</div>
 
-    {% endif %} 
-    {% endfor %}
+        {% endif %}
+        {% endfor %}
     {% endif %}
     <div class="container">
       {% block body %} {% endblock body %}

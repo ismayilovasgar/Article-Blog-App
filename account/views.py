@@ -21,7 +21,7 @@ def register__view(request):
 
         return redirect("home")
 
-    messages.warning(request, "Qeydiyyatda ugursuz bas verdi...")
+    # messages.warning(request, "Qeydiyyatda ugursuz bas verdi...")
     context = {"form": form}
     # return render(request, "register.html", context)
     return render(request, "register.html", context)
@@ -47,7 +47,7 @@ def login__view(request):
         return redirect("home")
 
     # return render(request, "login.html", context)
-    messages.warning(request, "Girisde ugursuz bas verdi...")
+    # messages.warning(request, "Girisde ugursuz bas verdi...")
     return render(request, "login.html", context)
 
 
