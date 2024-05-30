@@ -15,25 +15,13 @@
   </div>
   {% else %}
     <div class="user__info__login">
-      <h2><a href="{% url 'account:login' %}">Sign In Please...</a></h2>
+      <h2><a href="{% url 'account:login' %}">Sign In Please</a></h2>
     </div>
  {% endif %}
 
 
 
-{% if messages  %}
-{% for message in messages %}
 
-  {% if message.tags == "warning"  %}
-    <div class="alert alert__danger" id="message">{{message}}</div>
-
-  {% else %}
-   <div class="alert alert__success" id="message">{{message}}</div>
-
-  {% endif %}
-
-{% endfor %}
-{% endif %}
 
 
 {% comment %}
@@ -53,23 +41,6 @@
 </div>
 {% endcomment %}
 
-      <div class="card_container">
-        <ul class="card_lists">
-         {% for article in articles %}
-
-          <li class="card">
-          <h2 class="card_title">{{ article.title}}</h2>
-           <p class="card_content">{{ article.content}}</p>
-
-           <div class="card_footer">
-            <p>{{ article.created_date}}</p>
-             <p>{{ article.author}}</p>
-           </div>
-           <p></p>
-          </li>
-
-      {% endfor %}
-    </ul>
-  </div>
+     
 
 {% endblock body %}

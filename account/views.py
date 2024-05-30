@@ -18,12 +18,13 @@ def register__view(request):
 
         login(request, newUser)
         messages.success(request, "Ugurla qeydiyyatdan kecdiniz...")
+
         return redirect("home")
 
+    messages.warning(request, "Qeydiyyatda ugursuz bas verdi...")
     context = {"form": form}
     # return render(request, "register.html", context)
-    messages.warning(request, "Qeydiyyat ugursuzluqla yekunlasdir..")
-    return render(request, "register-0.2.html", context)
+    return render(request, "register.html", context)
 
 
 def login__view(request):
@@ -37,15 +38,17 @@ def login__view(request):
         user = authenticate(username=username, password=password)
 
         if user is None:
-            messages.success(request, "Giris ugursuzdu...")
+
             return render(request, "login.html")
 
         login(request, user)
         messages.success(request, "Ugurla giris etdiniz...")
+
         return redirect("home")
 
     # return render(request, "login.html", context)
-    return render(request, "login-0.2.html", context)
+    messages.warning(request, "Girisde ugursuz bas verdi...")
+    return render(request, "login.html", context)
 
 
 def logout__view(request):

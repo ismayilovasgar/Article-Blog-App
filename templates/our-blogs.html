@@ -1,6 +1,23 @@
-{% extends "base.html" %}
+{% extends "base.html" %} 
+{% block page__title %} Our Blogs {% endblock page__title %}
+{% block body %}
+<h1>Our Blogs</h1>
+<div class="card_container">
+  <ul class="card_lists">
+    {% for article in articles %}
 
+    <li class="card">
+      <h2 class="card_title">{{ article.title}}</h2>
+      <p class="card_content">{{ article.content}}</p>
 
-{% block page__title %}
-Our Blogs
-{% endblock page__title %}
+      <div class="card_footer">
+        <p>{{ article.created_date}}</p>
+        <p>{{ article.author}}</p>
+      </div>
+      <p></p>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+
+{% endblock body %}
