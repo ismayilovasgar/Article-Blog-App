@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block page__title %}
+Login Page
+{% endblock page__title %}
+
+{% block body %}
+<h2>Login Page</h2>
+
+<div class="form__container">
+
+    <form  method="post">
+        {% csrf_token %}
+
+        <div class="form__group">
+
+            <div class="form__username">
+                {% comment %} <p>{{form}}</p> {% endcomment %}
+                <label for="{{form.username.id_for_label}}">Istifadeci Adi:</label>
+                {{form.username}}
+            </div>
+
+            <div class="form__username">
+                <label for="{{form.password.id_for_label}}">Sifre:</label>
+                {{form.password}}
+            </div>
+
+            
+        </div>
+        {% comment %} {{form.as_p}} {% endcomment %}
+
+
+
+
+
+        <div class="btn_container">
+            <button class="btn">Sign In</button>
+        </div>
+
+
+
+     </form>
+</div>
+
+{% endblock body %}

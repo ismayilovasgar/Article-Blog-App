@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block page__title %}
+Register Page
+{% endblock page__title %}
+
+
+
+
+{% block body %}
+<h2>Register Page</h2>
+<div class="form__container">
+    <form  method="post">
+        {% csrf_token %}
+        {% comment %} {{form.as_p}} {% endcomment %}
+        <div class="form__group">
+
+            <div class="form__username">
+                {% comment %} <p>{{form}}</p> {% endcomment %}
+                <label for="{{form.username.id_for_label}}">Istifadeci Adi:</label>
+                {{form.username}}
+            </div>
+
+            <div class="form__username">
+                <label for="{{form.password.id_for_label}}">Sifre:</label>
+                {{form.password}}
+            </div>
+
+            <div class="form__username">
+                <label for="{{form.confirm.id_for_label}}">Sifre Tesdiqi:</label>
+                {{form.confirm}}
+            </div>
+
+            
+        </div>
+
+        <div class="btn_container">
+            <button class="btn">Sign Up</button>
+        </div>
+     </form>
+</div>
+
+
+{% endblock body %}

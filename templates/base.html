@@ -4,6 +4,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="{% static "logo.png" %}"
+    type="image/x-icon">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -23,17 +25,37 @@
           <li><a href="{% url 'home' %}">Home</a></li>
           <li><a href="{% url 'about' %}">About</a></li>
           <li><a href="{% url 'contact' %}">Contact</a></li>
-          <li><a href="{% url 'account:login' %}">Login</a></li>
-          <li><a href="{% url 'account:register' %}">Register</a></li>
-          <li>
-            <a href="">
-              <i class="fa-solid fa-right-from-bracket"></i>
-            </a>
+
+          {% if request.user.is_authenticated %}
+          
+          <li id="dropdown" >Meqaleler
+            <i id="down__icon" class="fa-solid fa-chevron-down"></i> 
+            <i id="up__icon" class="fa-solid fa-chevron-up"></i>
+            <ul class="dropdown__menu show">
+                <li>Menu 1</li>
+                <li>Menu 2</li>
+            </ul>
           </li>
+          <li>
+            <a href="{% url 'account:logout' %}">
+              <i class="fa-solid fa-right-from-bracket"></i>
+           </a>
+         </li>
+
+          {% else %} 
+
+          <li><a href="{% url 'account:login' %}">Login</a></li>
+          <li><a href="{% url 'account:register' %}">Register</a></li>     
+
+          {% endif %}
         </ul>
       </div>
     </div>
 
-    <div class="container">{% block body %} {% endblock body %}</div>
+    <div class="container">
+      {% block body %} {% endblock body %}
+    </div>
+
+    <script src="{% static 'app.js' %}"></script>
   </body>
 </html>
