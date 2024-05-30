@@ -43,3 +43,48 @@ i {
   margin: 2px;
   font-size: 24px;
 }
+
+.btn {
+  padding: 7px 15px;
+  font-size: 20px;
+  background-color: white;
+  color: rgb(110, 5, 5);
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  width: 160px;
+}
+.btn:hover {
+  background-color: rgb(110, 5, 5);
+  color: white;
+}
+.form__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+form {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+form p {
+  display: flex;
+  justify-content: space-between;
+}
+
+form p:last-child {
+  width: 120px;
+  margin: 20px 0;
+}
+
+form p label {
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

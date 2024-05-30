@@ -9,4 +9,14 @@ Register Page
 
 {% block body %}
 <h2>Register Page</h2>
+<div class="form__container">
+
+
+
+    <form  method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+       <button class="btn">Sign Up</button>
+     </form>
+</div>
 {% endblock body %}
