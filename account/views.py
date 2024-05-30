@@ -1,4 +1,6 @@
 from django.shortcuts import redirect, render
+from django.contrib.auth.models import User
+from django.contrib.auth import login, authenticate
 from .forms import *
 
 
@@ -9,12 +11,33 @@ def register__view(request):
     if form.is_valid():
         username = form.cleaned_data.get("username")
         password = form.cleaned_data.get("password")
+        newUser = User(username=username)
+        newUser.set_password(password)
+        newUser.save()
+
+        login(request, newUser)
+        return redirect("home")
+
     context = {"form": form}
     return render(request, "register.html", context)
 
 
 def login__view(request):
-    return render(request, "login.html")
+    form = LoginForm(request.POST or None)
+    context = {"form": form}
+
+    if form.is_valid():
+        username = form.cleaned_data.get("username")
+        password = form.cleaned_data.get("password")
+
+        user = authenticate(username=username, password=password)
+
+        if user is None:
+            return redirect(request, "login.html")
+
+        login(request, user)
+
+    return render(request, "login.html", context)
 
 
 def logout__view(request):

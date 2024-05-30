@@ -55,3 +55,18 @@ class RegisterForm(forms.Form):
         }
 
         return values
+
+
+class LoginForm(forms.Form):
+    username = forms.CharField(
+        max_length=30,
+        label="Username",
+        widget=forms.TextInput(attrs={"class": "myfieldclass", "style": field_style()}),
+    )
+    password = forms.CharField(
+        max_length=12,
+        label="Password",
+        widget=forms.PasswordInput(
+            attrs={"class": "myfieldclass", "style": field_style()}
+        ),
+    )

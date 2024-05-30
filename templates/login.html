@@ -7,4 +7,14 @@ Login Page
 {% block body %}
 <h2>Login Page</h2>
 
+<div class="form__container">
+    <form  method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <div class="btn_container">
+            <button class="btn">Sign In</button>
+        </div>
+     </form>
+</div>
+
 {% endblock body %}

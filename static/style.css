@@ -53,6 +53,7 @@ i {
   cursor: pointer;
   border-radius: 10px;
   width: 160px;
+  transition: all 0.3s;
 }
 .btn:hover {
   background-color: rgb(110, 5, 5);
@@ -62,7 +63,7 @@ i {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: ;
+  padding: 20px;
 }
 form {
   width: 400px;
@@ -77,14 +78,26 @@ form p {
   justify-content: space-between;
 }
 
-form p:last-child {
-  width: 120px;
-  margin: 20px 0;
-}
-
 form p label {
   font-size: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.btn_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+}
+
+ul.errorlist {
+  color: rgb(192, 6, 6);
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+ul.errorlist > li {
 }
