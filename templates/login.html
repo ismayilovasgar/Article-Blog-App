@@ -8,6 +8,11 @@ Login Page
 <h2>Login Page</h2>
 
 <div class="form__container">
+    {% comment %} {% if custom_error %}
+        <p class="errornote">
+            {{ custom_error }}
+        </p>
+    {% endif %} {% endcomment %}
     <form  method="post">
         {% csrf_token %}
         {{form.as_p}}

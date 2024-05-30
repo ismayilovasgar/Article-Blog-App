@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 from .forms import *
 
 
@@ -33,14 +33,14 @@ def login__view(request):
         user = authenticate(username=username, password=password)
 
         if user is None:
-            return redirect(request, "login.html")
+            return render(request, "login.html")
 
         login(request, user)
+        return redirect("home")
 
     return render(request, "login.html", context)
 
 
 def logout__view(request):
-    # return redirect("home")
-    # return render(request, "login.html")
-    pass
+    logout(request)
+    return redirect("home")

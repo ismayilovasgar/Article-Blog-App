@@ -99,5 +99,53 @@ ul.errorlist {
   justify-content: center;
   align-items: center;
 }
-ul.errorlist > li {
+
+/* card  */
+
+.card_lists {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  /* margin: 120px 0 0 0; */
+  /* background-color: darkslategrey; */
+  gap: 40px;
+  min-height: 20vh;
+  padding: 40px;
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.card {
+  border: 1px solid red;
+  border-radius: 10px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 5px 20px;
+  min-height: 350px;
+  background-color: rgba(31, 22, 56, 0.315);
+}
+.card_title {
+  text-align: center;
+  padding: 10px 0;
+  color: rgb(117, 6, 6);
+}
+.card_content {
+  text-align: justify;
+  font-size: 18px;
+  text-indent: 10px;
+  padding: 0 0 10px 0;
+}
+.card_footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+.card_footer {
+  margin: 5px;
 }

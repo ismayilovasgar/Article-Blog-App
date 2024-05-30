@@ -1,8 +1,11 @@
-{% extends "base.html" %} {% block page__title %} Home Page {% endblock page__title %}
-
-{% block body %}
+{% extends "base.html" %}
+ {% block page__title %}
+  Home Page 
+ {% endblock page__title %}
+ {% block body %}
 <h1>Home Page</h1>
 
+{% comment %}
 <div class="articles">
   <h2>Articles:</h2>
   <ul>
@@ -17,4 +20,25 @@
     {% endfor %}
   </ul>
 </div>
+{% endcomment %}
+
+<div class="card_container">
+  <ul class="card_lists">
+    {% for article in articles %}
+
+    <li class="card">
+      <h2 class="card_title">{{ article.title}}</h2>
+      <p class="card_content">{{ article.content}}</p>
+
+      <div class="card_footer">
+        <p>{{ article.created_date}}</p>
+        <p>{{ article.author}}</p>
+      </div>
+      <p></p>
+    </li>
+
+    {% endfor %}
+  </ul>
+</div>
+
 {% endblock body %}
