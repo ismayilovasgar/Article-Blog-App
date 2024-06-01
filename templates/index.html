@@ -9,15 +9,7 @@
 
 {% block body %}
 
- {% if request.user.is_authenticated  %}
-  <div class="user__info">
-    <h3>Welcome <span>{{request.user.username}}</span></h3>
-  </div>
-  {% else %}
-    <div class="user__info__login">
-      <h2><a href="{% url 'account:login' %}">Sign In Please</a></h2>
-    </div>
- {% endif %}
+
 
 
 

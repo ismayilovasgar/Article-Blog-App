@@ -30,8 +30,7 @@
           <li><a href="{% url 'contact' %}">Contact</a></li>
 
           {% if request.user.is_authenticated %}
-
-          <li id="dropdown">
+          {% comment %} <li id="dropdown">
             Meqaleler
             <i id="down__icon" class="fa-solid fa-chevron-down"></i>
             <i id="up__icon" class="fa-solid fa-chevron-up"></i>
@@ -39,15 +38,12 @@
               <li><a href="{% url 'our-blogs' %}">Our Blogs</a></li>
               <li><a href="{% url 'my-blogs'  %}">My Blogs</a></li>
             </ul>
-          </li>
-          <li>
-            <a href="{% url 'account:logout' %}">
-              <i class="fa-solid fa-right-from-bracket"></i>
-            </a>
-          </li>
+          </li> {% endcomment %}
+          <li><a href="{% url 'articles'  %}">Articles</a></li>
+          <li><a href="{% url 'dashboard'  %}"><i class="fa-solid fa-user"></i></a></li>
+          <li><a href="{% url 'account:logout' %}"><i class="fa-solid fa-right-from-bracket"></i></a></li>
 
           {% else %}
-
           <li><a href="{% url 'account:login' %}">Login</a></li>
           <li><a href="{% url 'account:register' %}">Register</a></li>
 

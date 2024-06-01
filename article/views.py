@@ -8,14 +8,18 @@ def home__view(request):
     return render(request, "index.html")
 
 
-def our__blogs__view(request):
+def articles__view(request):
     articles = Article.objects.all()
-    return render(request, "our-blogs.html", {"articles": articles})
+    return render(request, "articles.html", {"articles": articles})
 
 
-def my__blogs__view(request):
-    articles = Article.objects.all()
-    return render(request, "my-blogs.html", {"articles": articles})
+def addarticle__view(request):
+    return render(request, "addarticle.html")
+
+
+def dashboard__view(request):
+    articles = Article.objects.filter(author=request.user)
+    return render(request, "dashboard.html", {"articles": articles})
 
 
 def about__view(request):

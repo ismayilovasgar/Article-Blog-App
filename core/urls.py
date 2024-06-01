@@ -23,8 +23,9 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("about/", about__view, name="about"),
     path("contact/", contact__view, name="contact"),
-    path("our-blogs/", our__blogs__view, name="our-blogs"),
-    path("my-blogs/", my__blogs__view, name="my-blogs"),
+    path("articles/", articles__view, name="articles"),
+    path("dashboard/", dashboard__view, name="dashboard"),
+    path("addarticle", addarticle__view, name="addarticle"),
     path("", home__view, name="home"),
     path("account/", include("account.urls")),
 ]

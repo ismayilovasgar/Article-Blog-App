@@ -49,16 +49,21 @@ i {
   padding: 7px 15px;
   font-size: 20px;
   background-color: white;
-  color: rgb(110, 5, 5);
+  color: rgb(170, 121, 121);
   border: none;
   cursor: pointer;
   border-radius: 10px;
   width: 160px;
-  transition: all 0.7s;
+  transition: all 0.4s;
 }
 .btn:hover {
-  background-color: rgb(110, 5, 5);
+  background-color: rgb(182, 154, 154);
   color: white;
+}
+.add_btn {
+  position: fixed;
+  bottom: 40px;
+  left: 70px;
 }
 .form__container {
   display: flex;
@@ -120,7 +125,7 @@ ul.errorlist {
 .card {
   border: 1px solid red;
   border-radius: 10px;
-  width: 300px;
+  width: 500px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -186,11 +191,15 @@ ul.errorlist {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 20px 0;
 }
 
 .user__info span {
-  font-size: 24px;
+  font-size: 32px;
   color: black;
+  text-transform: capitalize;
+  word-spacing: 10px;
+  letter-spacing: 3px;
 }
 
 /* Dropdown Menu */
@@ -199,23 +208,25 @@ ul.errorlist {
   position: absolute;
   left: 0;
   top: 100%;
-  background-color: orangered;
+  background-color: #7c7774;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 8px 16px 0px rgba(216, 214, 214, 0.2);
   z-index: 5;
   border-radius: 5px;
 }
 
-
-
 .dropdown__menu li {
-  color: black;
+  color: rgb(20, 20, 20);
   padding: 8px 5px;
   text-decoration: none;
 }
 
 .dropdown__menu li:hover {
-  background-color: #cc1111;
+  background-color: #aca8a8;
+}
+
+.dropdown__menu li:hover a {
+  color: white;
 }
 
 .dropdown__menu li a {

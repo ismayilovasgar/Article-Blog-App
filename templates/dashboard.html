@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+    {% block page__title %} 
+      My Dashboard
+   {% endblock page__title %}
+   
+  {% block body %}
+    {% if request.user.is_authenticated %}
+    <div class="user__info">
+      <h3>Welcome, <span>{{request.user.username}}</span></h3>
+    </div>
+    {% else %}
+    <div class="user__info__login">
+      <h2><a href="{% url 'account:login' %}">Sign In Please</a></h2>
+    </div>
+
+
+    {% endif %}
+
+    <div class="card_container">
+      <ul class="card_lists">
+        {% for article in articles %}
+        <li class="card">
+          <h2 class="card_title">{{ article.title}}</h2>
+          <p class="card_content">{{ article.content}}</p>
+
+          <div class="card_footer">
+            <p>{{ article.created_date}}</p>
+            <p>{{ article.author}}</p>
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    <a href="{% url 'addarticle' %}"><button class="btn add_btn">Add Article</button></a>
+    
+
+  {% endblock body %}
