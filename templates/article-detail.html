@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+    {% block page__title %}
+    Detail About Article
+    {% endblock page__title %}
+
+    {% block body %}
+    
+
+    <div class="card_container">
+        <ul class="card_lists">
+          <li class="card">
+            <h2 class="card_title">{{ article.title}}</h2>
+            <p class="card_content">{{ article.content}}</p>
+  
+            <div class="card_footer">
+              <p>{{ article.created_date}}</p>
+              <p>{{ article.author}}</p>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+      
+
+    {% endblock body %}

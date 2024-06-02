@@ -7,7 +7,11 @@
     {% for article in articles %}
 
     <li class="card">
-      <h2 class="card_title">{{ article.title}}</h2>
+      <p ></p>
+      <h2 class="card_title">
+        {{article.id}}.
+        {{article.title}}
+      </h2>
       <p class="card_content">{{ article.content}}</p>
 
       <div class="card_footer">

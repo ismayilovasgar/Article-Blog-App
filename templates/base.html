@@ -52,7 +52,7 @@
       </div>
     </div>
 
-    {% if messages %} 
+    {% comment %} {% if messages %} 
       {% for message in messages %} 
         {% if message.tags == "warning" %}
         <div class="alert alert__warning">{{message}}</div>
@@ -62,7 +62,7 @@
 
         {% endif %}
         {% endfor %}
-    {% endif %}
+    {% endif %} {% endcomment %}
     <div class="container">
       {% block body %} {% endblock body %}
     </div>

@@ -25,7 +25,8 @@ urlpatterns = [
     path("contact/", contact__view, name="contact"),
     path("articles/", articles__view, name="articles"),
     path("dashboard/", dashboard__view, name="dashboard"),
-    path("addarticle", addarticle__view, name="addarticle"),
+    path("add-article/", addarticle__view, name="add-article"),
+    path("article-detail/<int:id>", article__detail__view, name="article-detail"),
     path("", home__view, name="home"),
     path("account/", include("account.urls")),
 ]

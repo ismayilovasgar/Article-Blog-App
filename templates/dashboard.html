@@ -4,6 +4,19 @@
    {% endblock page__title %}
    
   {% block body %}
+
+    {% if messages %} 
+      {% for message in messages %} 
+        {% if message.tags == "warning" %}
+          <div class="alert alert__warning">{{message}}</div>
+
+        {% else  %}
+          <div class="alert alert__success">{{message}}</div>
+
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+
     {% if request.user.is_authenticated %}
     <div class="user__info">
       <h3>Welcome, <span>{{request.user.username}}</span></h3>
@@ -21,8 +34,9 @@
         {% for article in articles %}
         <li class="card">
           <h2 class="card_title">{{ article.title}}</h2>
-          <p class="card_content">{{ article.content}}</p>
-
+          <p class="card_content">{{ article.content | truncatechars:85}}</p>
+          <a href="{% url 'article-detail' article.id %}"><p>...</p></a>
+     
           <div class="card_footer">
             <p>{{ article.created_date}}</p>
             <p>{{ article.author}}</p>
@@ -31,7 +45,9 @@
         {% endfor %}
       </ul>
     </div>
-    <a href="{% url 'addarticle' %}"><button class="btn add_btn">Add Article</button></a>
+    <a href="{% url 'add-article' %}">
+      <button class="btn add_btn">Add Article</button>
+    </a>
     
 
   {% endblock body %}

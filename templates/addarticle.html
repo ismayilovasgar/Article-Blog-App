@@ -6,8 +6,25 @@
     {% block body %}
     <h1>You may add new article</h1>
 
+    <form  method="post">
+        {% csrf_token %}
+        <div class="addarticle__container">
+            <div class="row addarticle__title">
+                <label for="{{form.title.id_for_label}}">Title</label>
+                <p>{{form.title}}</p>
+            </div>
+            <div class="row addarticle__content">
+                <label for="{{form.content.id_for_label}}">Content</label>
+                <p>{{form.content}}</p>
+            </div>
+        </div>
+        <div class="addarticle__savebtn">
+            <button class="btn">add and save article</button>
+        </div>
+    </form>
+
     {% endblock body %}
 
 
 
-
+ 

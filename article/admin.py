@@ -1,5 +1,24 @@
 from django.contrib import admin
-from article.models import Article
+from .models import Article
+
 
 # Register your models here.
-admin.site.register(Article)
+class ArticleAdmin(admin.ModelAdmin):
+    list_display = (
+        "author",
+        "title",
+        "content",
+        "created_date",
+    )
+    search_fields = (
+        "author",
+        "title",
+    )
+    list_filter = (
+        "author",
+        "title",
+        "created_date",
+    )
+
+
+admin.site.register(Article, ArticleAdmin)

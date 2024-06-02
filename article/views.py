@@ -1,5 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from .models import *
+from .articleform import ArticleForm
+from django.contrib import messages
 
 
 # Create your views here.
@@ -14,7 +16,17 @@ def articles__view(request):
 
 
 def addarticle__view(request):
-    return render(request, "addarticle.html")
+    form = ArticleForm(request.POST or None)
+    if form.is_valid():
+        article = form.save(commit=False)
+        article.author = request.user
+        article.save()
+
+        messages.success(request, "Successfully Added Your Article")
+        return redirect("dashboard")
+
+    context = {"form": form}
+    return render(request, "addarticle.html", context)
 
 
 def dashboard__view(request):
@@ -24,6 +36,12 @@ def dashboard__view(request):
 
 def about__view(request):
     return render(request, "about.html")
+
+
+def article__detail__view(request, id):
+    article = Article.objects.filter(id=id).first()
+    context = {"article": article}
+    return render(request, "article-detail.html", context)
 
 
 def contact__view(request):
