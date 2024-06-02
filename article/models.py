@@ -15,13 +15,14 @@ class Article(models.Model):
         return f"{self.title} | {self.author}"
 
 
-class User(models.Model):
+class Article_Writer(models.Model):
     username = models.TextField(unique=True, max_length=40)
     sluq = models.SlugField(
         blank=True,
         unique=True,
         db_index=True,
         editable=False,
+        null=True,
     )
 
     def save(self, *args, **kwargs):
