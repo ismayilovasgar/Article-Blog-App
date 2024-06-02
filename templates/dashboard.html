@@ -34,7 +34,7 @@
         {% for article in articles %}
         <li class="card">
           <h2 class="card_title">{{ article.title}}</h2>
-          <p class="card_content">{{ article.content | truncatechars:85}}</p>
+          <p class="card_content">{{ article.content | safe}}</p>
           <a href="{% url 'article-detail' article.id %}"><p>...</p></a>
      
           <div class="card_footer">

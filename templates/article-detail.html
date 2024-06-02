@@ -11,7 +11,7 @@
         <ul class="card_lists">
           <li class="card">
             <h2 class="card_title">{{ article.title}}</h2>
-            <p class="card_content">{{ article.content}}</p>
+            <p class="card_content">{{ article.content|safe}}</p>
   
             <div class="card_footer">
               <p>{{ article.created_date}}</p>

@@ -9,10 +9,9 @@
     <li class="card">
       <p ></p>
       <h2 class="card_title">
-        {{article.id}}.
-        {{article.title}}
+        {{article.id}}.{{article.title}}
       </h2>
-      <p class="card_content">{{ article.content}}</p>
+      <p class="card_content">{{ article.content|safe}}</p>
 
       <div class="card_footer">
         <p>{{ article.created_date}}</p>
