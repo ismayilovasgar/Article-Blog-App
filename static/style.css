@@ -267,3 +267,29 @@ ul.errorlist {
 .dropdown__menu.show {
   display: none;
 }
+
+/* Add Article */
+
+.addarticle__container label {
+  font-size: 24px;
+  color: black;
+}
+
+.addarticle__title {
+  margin: 20px 0 0 0;
+}
+.addarticle__title input {
+  padding: 5px 12px;
+}
+.addarticle__content {
+  margin: 20px 0 0 0;
+}
+
+.addarticle__savebtn {
+  margin: 40px 0 0 0;
+}
+.addarticle__savebtn button {
+  /* margin: 20px 0 0 0; */
+  padding: 5px;
+  color: black;
+}
