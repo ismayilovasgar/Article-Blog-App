@@ -26,7 +26,8 @@ urlpatterns = [
     path("articles/", articles__view, name="articles"),
     path("dashboard/", dashboard__view, name="dashboard"),
     path("add-article/", addarticle__view, name="add-article"),
-    path("article-detail/<int:id>", article__detail__view, name="article-detail"),
+    # path("article-detail/<int:id>", article__detail__view, name="article-detail"),
+    path("article-detail/<slug:slug>", article__detail__view, name="article-detail"),
     path("", home__view, name="home"),
     path("account/", include("account.urls")),
 ]

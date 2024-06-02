@@ -38,8 +38,15 @@ def about__view(request):
     return render(request, "about.html")
 
 
-def article__detail__view(request, id):
-    article = Article.objects.filter(id=id).first()
+def article__detail__view(request, slug):
+    # article = Article.objects.get(id=id)
+
+
+    # article = Article.objects.filter(id=id).first()
+    # context = {"article": article}
+    # return render(request, "article-detail.html", context)
+
+    article = Article.objects.filter(slug=slug).first()
     context = {"article": article}
     return render(request, "article-detail.html", context)
 

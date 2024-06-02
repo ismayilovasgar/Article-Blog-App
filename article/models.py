@@ -10,24 +10,36 @@ class Article(models.Model):
     # content = models.TextField()
     content = RichTextField()
     created_date = models.DateTimeField(auto_now_add=True)
+    slug = models.SlugField(
+        null=True,
+        blank=True,
+        db_index=True,
+        unique=True,
+        editable=True,
+    )
 
     def __str__(self):
         return f"{self.title} | {self.author}"
 
-
-class Article_Writer(models.Model):
-    username = models.TextField(unique=True, max_length=40)
-    sluq = models.SlugField(
-        blank=True,
-        unique=True,
-        db_index=True,
-        editable=False,
-        null=True,
-    )
-
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.username)
+        self.slug = slugify(self.title)
         super().save(*args, **kwargs)
 
-    def __str__(self) -> str:
-        return f"{self.username}"
+
+# class Article_Writer(models.Model):
+#     username = models.TextField(unique=True, max_length=40)
+#     sluq = models.SlugField(
+#         blank=True,
+#         unique=True,
+#         db_index=True,
+#         editable=False,
+#         null=True,
+#     )
+#     articles = models.ForeignKey(Article, null=True, default=1)
+
+#     def save(self, *args, **kwargs):
+#         self.slug = slugify(self.username)
+#         super().save(*args, **kwargs)
+
+#     def __str__(self) -> str:
+#         return f"{self.username}"

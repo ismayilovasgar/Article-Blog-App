@@ -35,7 +35,7 @@
         <li class="card">
           <h2 class="card_title">{{ article.title}}</h2>
           <p class="card_content">{{ article.content | safe}}</p>
-          <a href="{% url 'article-detail' article.id %}"><p>...</p></a>
+          <a href="{% url 'article-detail' article.slug %}"><p>...</p></a>
      
           <div class="card_footer">
             <p>{{ article.created_date}}</p>

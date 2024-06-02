@@ -8,7 +8,8 @@ class ArticleAdmin(admin.ModelAdmin):
         "author",
         "title",
         "content",
-        "created_date",
+        # "created_date",
+        "slug",
     )
     search_fields = (
         "author",
@@ -28,4 +29,4 @@ class Article_WriterAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Article, ArticleAdmin)
-admin.site.register(Article_Writer, Article_WriterAdmin)
+# admin.site.register(Article_Writer, Article_WriterAdmin)
