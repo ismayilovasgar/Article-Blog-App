@@ -61,9 +61,10 @@ i {
   color: white;
 }
 .add_btn {
-  position: fixed;
-  bottom: 40px;
-  left: 70px;
+  /* position: fixed; */
+  /* bottom: 40px; */
+  /* left: 70px; */
+  margin: 20px 0 40px;
 }
 .form__container {
   display: flex;
