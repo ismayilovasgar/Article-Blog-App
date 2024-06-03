@@ -28,7 +28,11 @@
 
 <div class="card__contaier">
             <div class="card">
-                    <img src="./img1.jpeg" alt="" />
+                    {% if article.image %}
+                    <img src="{{ article.image.url }}" alt="" />
+                    {% else %}
+                    <img src=""" alt="" />
+                    {% endif %}                    
                     <div class="card__title">{{article.id}}.{{article.title}}</div>
                     <div class="card__content">{{ article.content|safe}}</div>
                     <div class="card__footer">

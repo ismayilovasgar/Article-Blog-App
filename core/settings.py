@@ -30,14 +30,6 @@ ALLOWED_HOSTS = []
 # DEBUG = False
 # ALLOWED_HOSTS = ["127.0.0.1"]
 
-# My Ckeditor Config
-CKEDITOR_CONFIGS = {
-    "default": {
-        # ... your default config...
-        "removePlugins":"stylesheetparser",
-        "allowedContent": True
-    }
-}
 
 # Application definition
 
@@ -52,7 +44,9 @@ INSTALLED_APPS = [
     "account",
     "article",
     "ckeditor",
+    "ckeditor_uploader",
 ]
+
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -132,9 +126,33 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 STATICFILES_DIRS = [BASE_DIR / "static"]
+# my-deploy staticfiles
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+# ####################################
+# ckeditor Config Image Upload
+# CKEDITOR_UPLOAD_PATH = BASE_DIR / "uploads"
+# MEDIA_URL = "/media/"
+# MEDIA_ROOT = BASE_DIR + "media/"
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
+
+# CKEDITOR_IMAGE_BACKEND = "pillow"
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+# MEDIA_ROOT = BASE_DIR / "uploads"
+# My Ckeditor Config
+CKEDITOR_CONFIGS = {
+    "default": {
+        # ... your default config...
+        "removePlugins": "stylesheetparser",
+        # "allowedContent": True,
+    }
+}

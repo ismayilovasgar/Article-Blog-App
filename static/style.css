@@ -178,7 +178,7 @@ ul.errorlist {
 .card img {
   width: 100%;
   object-fit: cover;
-  height: 50%;
+  height: 50% !important;
 }
 
 .card .card__title {

@@ -18,6 +18,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from article.views import *
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -30,6 +33,13 @@ urlpatterns = [
     # path("article-detail/<slug:slug>", article__detail__view, name="article-detail"),
     path("", home__view, name="home"),
     path("account/", include("account.urls")),
-]
+    # ckeditor config
+    path("ckeditor/", include("ckeditor_uploader.urls")),
+]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 handler404 = "article.views.custom_404"  # new
+
+
+# if settings.DEBUG:
+#     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+#     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

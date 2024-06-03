@@ -31,7 +31,7 @@ def articles__view(request):
 
 @login_required(login_url="account:login")
 def addarticle__view(request):
-    form = ArticleForm(request.POST or None)
+    form = ArticleForm(request.POST or None, request.FILES or None)
     if form.is_valid():
         article = form.save(commit=False)
         article.author = request.user

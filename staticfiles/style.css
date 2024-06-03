@@ -178,7 +178,7 @@ ul.errorlist {
 .card img {
   width: 100%;
   object-fit: cover;
-  height: 50%;
+  height: 50% !important;
 }
 
 .card .card__title {
@@ -350,8 +350,8 @@ ul.errorlist {
 }
 .addarticle__content {
   margin: 20px 0 0 0;
+  width: 1200px;
 }
-
 .addarticle__savebtn {
   margin: 40px 0 0 0;
 }

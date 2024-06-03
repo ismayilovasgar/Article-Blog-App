@@ -1,5 +1,6 @@
 from django.db import models
 from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
 from django.utils.text import slugify
 
 
@@ -8,7 +9,9 @@ class Article(models.Model):
     author = models.ForeignKey("auth.User", on_delete=models.CASCADE)
     title = models.CharField(max_length=150)
     # content = models.TextField()
-    content = RichTextField()
+    # content = RichTextField()
+    image = models.ImageField(upload_to="myIMG", null=True, blank=True, default="1")
+    content = RichTextUploadingField(null=True, blank=True)
     created_date = models.DateTimeField(auto_now_add=True)
     slug = models.SlugField(
         null=True,
