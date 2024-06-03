@@ -25,7 +25,8 @@ i {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: white;
+  /* background-color: white; */
+  background-color: teal;
 }
 
 .navbar .nav__logo img {
@@ -349,8 +350,8 @@ ul.errorlist {
 }
 .addarticle__content {
   margin: 20px 0 0 0;
+  width: 1200px;
 }
-
 .addarticle__savebtn {
   margin: 40px 0 0 0;
 }

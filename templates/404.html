@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block page__title %}
+ 404 Not Founded 
+{% endblock page__title %}
+
+
+{% block body %}
+<p>404 Not Found. This is custom page</p>
+<a href="{% url "account:login" %}">Back to Home</a>
+{% endblock body %}

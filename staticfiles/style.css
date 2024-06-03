@@ -1,0 +1,362 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+body {
+  background-color: rgba(104, 109, 104, 0.671);
+  color: black;
+}
+
+.container {
+  width: 1200px;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+a,
+i {
+  color: black;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  /* background-color: white; */
+  background-color: teal;
+}
+
+.navbar .nav__logo img {
+  width: 60px;
+}
+
+.nav__links > ul {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav__links > ul > li {
+  position: relative;
+  padding: 8px 12px;
+  margin: 2px;
+  font-size: 24px;
+}
+
+.btn {
+  padding: 7px 15px;
+  font-size: 20px;
+  background-color: white;
+  color: rgb(73, 61, 61);
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  width: 160px;
+  transition: all 0.3s;
+}
+.btn:hover {
+  background-color: rgb(182, 154, 154);
+  color: white;
+}
+.add_btn {
+  margin: 20px 0 40px;
+}
+.form__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+form {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+form p {
+  display: flex;
+  justify-content: space-between;
+}
+
+form p label {
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+}
+
+ul.errorlist {
+  color: rgb(192, 6, 6);
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* card  */
+/* 
+.card_lists {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  min-height: 20vh;
+  padding: 40px;
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.card {
+  border: 1px solid red;
+  border-radius: 10px;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 5px 20px;
+  min-height: 350px;
+  background-color: rgba(31, 22, 56, 0.315);
+}
+.card_title {
+  text-align: center;
+  padding: 10px 0;
+  color: rgb(117, 6, 6);
+}
+.card_content {
+  text-align: justify;
+  font-size: 18px;
+  text-indent: 10px;
+  padding: 0 0 10px 0;
+}
+.card_footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+.card_footer {
+  margin: 5px;
+} */
+
+.card__contaier {
+  width: 100%;
+  /* height: 80vh; */
+  /* border: 1px solid green; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 20px 0 0 0;
+  padding: 20px;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30%;
+  border: 1px solid rgb(216, 216, 216);
+  /* background-color: rgb(148, 147, 147); */
+  height: 70vh;
+  padding: 0 0 10px 0;
+}
+.card img {
+  width: 100%;
+  object-fit: cover;
+  height: 50%;
+}
+
+.card .card__title {
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 0 10px;
+}
+
+.card__content {
+  font-size: 14px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  text-align: justify;
+  padding: 0 10px;
+  text-indent: 5px;
+  margin: 10px 0;
+  line-height: 24px;
+}
+
+.card__footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+.created__date {
+  font-size: 18px;
+}
+
+.card__actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+.fa-trash {
+  color: rgb(39, 5, 5);
+  font-size: 24px;
+}
+.fa-pen-to-square {
+  color: blue;
+  font-size: 24px;
+}
+
+/* Message */
+.alert__warning {
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 20px 0 0 0;
+  border: 1px solid transparent;
+  border: 5px;
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+.alert__success {
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 20px 0 0 0;
+  border: 1px solid transparent;
+  border: 5px;
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
+/* User Info */
+
+.user__info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.user__info span {
+  font-size: 32px;
+  color: black;
+  text-transform: capitalize;
+  word-spacing: 10px;
+  letter-spacing: 3px;
+}
+
+/* Dropdown Menu */
+
+.dropdown__menu {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  background-color: #7c7774;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(216, 214, 214, 0.2);
+  z-index: 5;
+  border-radius: 5px;
+}
+
+.dropdown__menu li {
+  color: rgb(20, 20, 20);
+  padding: 8px 5px;
+  text-decoration: none;
+}
+
+.dropdown__menu li:hover {
+  background-color: #aca8a8;
+}
+
+.dropdown__menu li:hover a {
+  color: white;
+}
+
+.dropdown__menu li a {
+  display: block;
+}
+
+.dropdown__menu.show {
+  display: none;
+}
+
+#dropdown {
+  position: relative;
+  display: flex;
+  gap: 5px;
+  color: black;
+}
+
+#down__icon {
+  display: block;
+  display: flex;
+  flex-direction: column;
+}
+
+#down__icon.show {
+  display: none;
+}
+
+#up__icon {
+  display: none;
+}
+
+#up__icon.show {
+  display: block;
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown__menu.show {
+  display: none;
+}
+
+/* Add Article */
+
+.addarticle__container label {
+  font-size: 24px;
+  color: black;
+}
+
+.addarticle__title {
+  margin: 20px 0 0 0;
+}
+.addarticle__title input {
+  padding: 5px 12px;
+}
+.addarticle__content {
+  margin: 20px 0 0 0;
+}
+
+.addarticle__savebtn {
+  margin: 40px 0 0 0;
+}
+.addarticle__savebtn button {
+  /* margin: 20px 0 0 0; */
+  padding: 5px;
+  color: black;
+}

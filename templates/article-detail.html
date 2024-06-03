@@ -6,7 +6,7 @@
 
     {% block body %}
     
-
+{% comment %} 
     <div class="card_container">
         <ul class="card_lists">
           <li class="card">
@@ -20,7 +20,33 @@
           </li>
 
         </ul>
-      </div>
+      </div> {% endcomment %}
       
+
+
+      {% comment %} ************************* {% endcomment %}
+
+<div class="card__contaier">
+            <div class="card">
+                    <img src="./img1.jpeg" alt="" />
+                    <div class="card__title">{{article.id}}.{{article.title}}</div>
+                    <div class="card__content">{{ article.content|safe}}</div>
+                    <div class="card__footer">
+                    <div class="created__date">{{ article.created_date}}</div>
+                      <div class="card__actions">
+                          <a href="">
+                            <i class="fa-solid fa-trash"></i>
+                          </a>
+                          <a href="">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                          </a>
+                      </div> 
+                  </div>
+              </div>
+  </div>
+
+
+
+      {% comment %} ************************* {% endcomment %}
 
     {% endblock body %}

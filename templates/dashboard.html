@@ -27,7 +27,6 @@
     </div>
 
     {% endif %}
-
     {% comment %} <div class="card_container">
       <ul class="card_lists">
         {% for article in articles %}
@@ -49,15 +48,20 @@
       <button class="btn add_btn">Add Article</button>
     </a>
    </div> {% endcomment %}
-
+  <div class="add_btn_container">
+    <a href="{% url 'add-article' %}">
+      <button class="btn add_btn">Add Article</button>
+    </a>
+  </div>
    
-<div class="card__contaier">
+  <div class="card__contaier">
   {% for article in articles %}
 
       <div class="card">
               <img src="./img1.jpeg" alt="" />
               <div class="card__title">{{article.id}}.{{article.title}}</div>
-              <div class="card__content">{{ article.content|safe}}</div>
+              <div class="card__content">{{ article.content|safe|truncatechars:70 }}</div>
+              <a href="{% url 'article-detail' article.id %}"><p style="font-size:20px">Read More...</p></a>
               <div class="card__footer">
                 <div class="created__date">{{ article.created_date}}</div>
               {% comment %} <div class="created__date">{{ article.created_date}}</div> {% endcomment %}
@@ -73,7 +77,7 @@
         </div>
 
   {% endfor %}
-</div>
+  </div>
     
 
   {% endblock body %}

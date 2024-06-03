@@ -24,9 +24,20 @@ SECRET_KEY = "django-insecure-id(iey+7*l9-00*8)b67*i#nepbk$944^jw+f3_4-*w#*37a_r
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
 ALLOWED_HOSTS = []
 
+# My 404 Custom Page Config
+# DEBUG = False
+# ALLOWED_HOSTS = ["127.0.0.1"]
+
+# My Ckeditor Config
+CKEDITOR_CONFIGS = {
+    "default": {
+        # ... your default config...
+        "removePlugins":"stylesheetparser",
+        "allowedContent": True
+    }
+}
 
 # Application definition
 
@@ -121,6 +132,7 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 STATICFILES_DIRS = [BASE_DIR / "static"]
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

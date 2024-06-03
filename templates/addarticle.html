@@ -8,6 +8,7 @@
 
     <form  method="post">
         {% csrf_token %}
+        {{form.media}}
         <div class="addarticle__container">
             <div class="row addarticle__title">
                 <label for="{{form.title.id_for_label}}">Title</label>
