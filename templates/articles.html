@@ -1,16 +1,16 @@
-{% extends "base.html" %} 
-{% block page__title %} Our Blogs {% endblock page__title %}
+{% extends "base.html" %}
+  {% block page__title %} 
+  Our Blogs 
+  {% endblock page__title %} 
 {% block body %}
-<h1>Our Blogs</h1>
-<div class="card_container">
+  <h1>Our Blogs</h1>
+
+{% comment %} <div class="card_container">
   <ul class="card_lists">
     {% for article in articles %}
 
     <li class="card">
-      <p ></p>
-      <h2 class="card_title">
-        {{article.id}}.{{article.title}}
-      </h2>
+      <h2 class="card_title">{{article.id}}.{{article.title}}</h2>
       <p class="card_content">{{ article.content|safe}}</p>
 
       <div class="card_footer">
@@ -21,6 +21,31 @@
     </li>
     {% endfor %}
   </ul>
+</div> {% endcomment %}
+{% comment %} **************************************** {% endcomment %}
+
+<div class="card__contaier">
+      {% for article in articles %}
+
+          <div class="card">
+                  <img src="./img1.jpeg" alt="" />
+                  <div class="card__title">{{article.id}}.{{article.title}}</div>
+                  <div class="card__content">{{ article.content|safe}}</div>
+                  <div class="card__footer">
+                    <div class="created__date">{{ article.created_date}}</div>
+                  {% comment %} <div class="created__date">{{ article.created_date}}</div> {% endcomment %}
+                    <div class="card__actions">
+                        <a href="">
+                          <i class="fa-solid fa-trash"></i>
+                        </a>
+                        <a href="">
+                          <i class="fa-solid fa-pen-to-square"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+      {% endfor %}
 </div>
 
 {% endblock body %}

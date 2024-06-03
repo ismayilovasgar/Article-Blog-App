@@ -26,10 +26,9 @@
       <h2><a href="{% url 'account:login' %}">Sign In Please</a></h2>
     </div>
 
-
     {% endif %}
 
-    <div class="card_container">
+    {% comment %} <div class="card_container">
       <ul class="card_lists">
         {% for article in articles %}
         <li class="card">
@@ -49,7 +48,32 @@
     <a href="{% url 'add-article' %}">
       <button class="btn add_btn">Add Article</button>
     </a>
-   </div>
+   </div> {% endcomment %}
+
+   
+<div class="card__contaier">
+  {% for article in articles %}
+
+      <div class="card">
+              <img src="./img1.jpeg" alt="" />
+              <div class="card__title">{{article.id}}.{{article.title}}</div>
+              <div class="card__content">{{ article.content|safe}}</div>
+              <div class="card__footer">
+                <div class="created__date">{{ article.created_date}}</div>
+              {% comment %} <div class="created__date">{{ article.created_date}}</div> {% endcomment %}
+                <div class="card__actions">
+                    <a href="">
+                      <i class="fa-solid fa-trash"></i>
+                    </a>
+                    <a href="">
+                      <i class="fa-solid fa-pen-to-square"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+  {% endfor %}
+</div>
     
 
   {% endblock body %}
