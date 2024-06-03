@@ -352,6 +352,9 @@ ul.errorlist {
   margin: 20px 0 0 0;
   width: 1200px;
 }
+.addarticle__content p {
+  margin: 20px 0 0 0;
+}
 .addarticle__savebtn {
   margin: 40px 0 0 0;
 }
@@ -359,4 +362,14 @@ ul.errorlist {
   /* margin: 20px 0 0 0; */
   padding: 5px;
   color: black;
+}
+
+/* Add article Image */
+.addarticle__header__img {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 300px;
+  gap: 40px;
+  margin: 50px 0 0 0;
 }

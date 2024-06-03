@@ -6,9 +6,10 @@
     {% block body %}
     <h1>You may add new article</h1>
 
-    <form  method="post">
+    <form  method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{form.media}}
+        {% comment %} {{ form.as_p }} {% endcomment %}
         <div class="addarticle__container">
             <div class="row addarticle__title">
                 <label for="{{form.title.id_for_label}}">Title</label>
@@ -18,10 +19,14 @@
                 <label for="{{form.content.id_for_label}}">Content</label>
                 <p>{{form.content}}</p>
             </div>
+            <div class="row addarticle__header__img">
+                <label for="{{form.image.id_for_label}}">Image</label>
+                <p>{{form.image}}</p>
+            </div>
         </div>
         <div class="addarticle__savebtn">
             <button class="btn">add and save</button>
-        </div>
+        </div> 
     </form>
 
     {% endblock body %}
