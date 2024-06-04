@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "article",
     "ckeditor",
     "ckeditor_uploader",
+    "django_cleanup",
 ]
 
 
@@ -141,12 +142,12 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # MEDIA_URL = "/media/"
 # MEDIA_ROOT = BASE_DIR + "media/"
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"
 
 
 # CKEDITOR_IMAGE_BACKEND = "pillow"
-CKEDITOR_UPLOAD_PATH = 'uploads/'
+CKEDITOR_UPLOAD_PATH = "uploads/"
 # MEDIA_ROOT = BASE_DIR / "uploads"
 # My Ckeditor Config
 CKEDITOR_CONFIGS = {

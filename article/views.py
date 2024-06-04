@@ -30,6 +30,33 @@ def articles__view(request):
 
 
 @login_required(login_url="account:login")
+def article__update__view(request, id):
+    article = get_object_or_404(Article, id=id)
+    form = ArticleForm(request.POST or None, request.FILES or None, instance=article)
+    if form.is_valid():
+        article = form.save(commit=False)
+        article.author = request.user
+        article.save()
+
+        messages.success(request, "Successfully Update Your Article")
+        return redirect("dashboard")
+
+    context = {
+        "form": form,
+        "article": article,
+    }
+    return render(request, "update.html", context)
+
+
+@login_required(login_url="account:login")
+def article__delete__view(request, id):
+    article = get_object_or_404(Article, id=id)
+    article.delete()
+    messages.success(request, "Successfullt Delete Article")
+    return redirect("dashboard")
+
+
+@login_required(login_url="account:login")
 def addarticle__view(request):
     form = ArticleForm(request.POST or None, request.FILES or None)
     if form.is_valid():

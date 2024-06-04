@@ -40,12 +40,12 @@
                     <div class="created__date">{{ article.created_date}}</div>
                   {% comment %} <div class="created__date">{{ article.created_date}}</div> {% endcomment %}
                     <div class="card__actions">
-                        <a href="">
-                          <i class="fa-solid fa-trash"></i>
-                        </a>
-                        <a href="">
-                          <i class="fa-solid fa-pen-to-square"></i>
-                        </a>
+                      <a href="{% url 'delete-article' article.id %}">
+                        <i class="fa-solid fa-trash"></i>
+                      </a>
+                      <a href="{% url 'update-article' article.id %}">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                      </a>
                     </div>
                 </div>
             </div>

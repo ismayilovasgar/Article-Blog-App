@@ -61,8 +61,14 @@ i {
   background-color: rgb(182, 154, 154);
   color: white;
 }
+.addarticle__container a {
+  display: block;
+  padding: 25px 14px;
+}
 .add_btn {
-  margin: 20px 0 40px;
+  padding: 12px 18px;
+  margin: 0 0 0 56px;
+  cursor: pointer;
 }
 .form__container {
   display: flex;
@@ -359,7 +365,6 @@ ul.errorlist {
   margin: 40px 0 0 0;
 }
 .addarticle__savebtn button {
-  /* margin: 20px 0 0 0; */
   padding: 5px;
   color: black;
 }
@@ -367,9 +372,69 @@ ul.errorlist {
 /* Add article Image */
 .addarticle__header__img {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
   width: 300px;
   gap: 40px;
   margin: 50px 0 0 0;
+}
+
+/* update html */
+
+.updatearticle__header__img {
+  width: 800px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-size: 16px;
+}
+.updatearticle__header__img > label {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  font-size: 16px;
+}
+
+/*  */
+.updatearticle__header__img p {
+  width: 85%;
+  display: flex;
+  column-gap: 25px;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-size: 16px;
+}
+.updatearticle__header__img p * {
+  display: inline-block;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  font-size: 16px;
+}
+.updatearticle__header__img p * {
+  display: inline-block;
+  font-size: 16px;
+}
+
+.updatearticle__updatebtnn {
+  padding: 6px 8px;
+}
+.btn-update {
+  font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 6px 14px;
+  border: none;
+  margin: 40px 0 40px 0;
+  cursor: pointer;
+}
+.img_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+  width: 80%;
+}
+.update_page_img {
+  width: 100%;
+  object-fit: cover;
 }
