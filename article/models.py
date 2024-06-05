@@ -43,7 +43,7 @@ class Comment(models.Model):
     )
 
     comment_author = models.CharField(max_length=50)
-    comment_content = RichTextField()
+    comment_content = models.TextField(max_length=250)
     comment_date = models.DateTimeField(auto_now_add=True)
 
     @property

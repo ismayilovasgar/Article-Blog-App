@@ -6,52 +6,77 @@
 
     {% block body %}
     
-{% comment %} 
-    <div class="card_container">
-        <ul class="card_lists">
-          <li class="card">
-            <h2 class="card_title">{{ article.title}}</h2>
-            <p class="card_content">{{ article.content|safe}}</p>
-  
-            <div class="card_footer">
-              <p>{{ article.created_date}}</p>
-              <p>{{ article.author}}</p>
+{% comment %} ?? {% endcomment %}
+      {% if messages %} 
+      {% for message in messages %} 
+        {% if message.tags == "warning" %}
+          <div class="alert alert__warning">{{message}}</div>
+
+        {% else  %}
+          <div class="alert alert__success">{{message}}</div>
+
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+{% comment %} ?? {% endcomment %}
+
+
+
+
+
+{% comment %} ************************* {% endcomment %}
+<div class="card__detail__contaier">
+              <div class="card">
+                      {% if article.image %}
+                      <img src="{{ article.image.url }}" alt="" />
+                      {% else %}
+                      <img src=""" alt="" />
+                      {% endif %}                    
+                      <div class="card__title">{{article.id}}.{{article.title}}</div>
+                      <div class="card__content">{{ article.content|safe}}</div>
+                      <div class="card__footer">
+                      <div class="created__date">{{ article.created_date}}</div>
+                        <div class="card__actions">
+                            <a href="">
+                              <i class="fa-solid fa-trash"></i>
+                            </a>
+                            <a href="">
+                              <i class="fa-solid fa-pen-to-square"></i>
+                            </a>
+                        </div> 
+                    </div>
             </div>
-          </li>
+</div>
 
-        </ul>
-      </div> {% endcomment %}
-      
-
-
-{% comment %} ************************* {% endcomment %}
-<div class="card__contaier">
-            <div class="card">
-                    {% if article.image %}
-                    <img src="{{ article.image.url }}" alt="" />
-                    {% else %}
-                    <img src=""" alt="" />
-                    {% endif %}                    
-                    <div class="card__title">{{article.id}}.{{article.title}}</div>
-                    <div class="card__content">{{ article.content|safe}}</div>
-                    <div class="card__footer">
-                    <div class="created__date">{{ article.created_date}}</div>
-                      <div class="card__actions">
-                          <a href="">
-                            <i class="fa-solid fa-trash"></i>
-                          </a>
-                          <a href="">
-                            <i class="fa-solid fa-pen-to-square"></i>
-                          </a>
-                      </div> 
-                  </div>
-              </div>
-  </div>
+    
 {% comment %} ************************* {% endcomment %}
 
-<div class="comment_container">
+<div class="comments_section">
   <h3>Comments </h3>
-  <form action="{% url 'comment' article.id %}" method="post">
+  {% if comments %}
+    {% for comment in comments  %}
+
+      <div class="comment_container">  
+        <div class="comment_index">
+          <p>{{comment.comment_author}}</p>
+          <p>{{comment.comment_date}}</p>
+          <p>{{comment.comment_content}}</p>
+        </div>
+        <div class="comment__actions">
+          <a href="{% url 'comment-delete' comment.id %}">
+            <i class="fa-solid fa-trash"></i>
+          </a>
+      </div>
+        <hr>
+      </div>
+    
+    {% endfor %}
+  {% endif %}
+</div>
+
+{% comment %} ********************************** {% endcomment %}
+<div class="comment_container">
+  <form action="{% url 'comment' article.id %}" method="post" class="form__comment">
     {% csrf_token %}
 
     <div class="form__comment__author">
@@ -61,11 +86,11 @@
 
     <div class="form__comment__content">
       <label for="commentContent" >Content Text</label>
-      <input type="text" name="comment_content" placeholder="Enter Content Text..." id="commentContent">
+      <textarea type="textarea" name="comment_content" placeholder="Enter Content Text..." id="commentContent"></textarea>
     </div>
 
-    <button type="submit" class="comment__btn">Send</button>
-    
+    <button type="submit" class="comment__btn">Send </button>
+
   </form>
 </div>
 

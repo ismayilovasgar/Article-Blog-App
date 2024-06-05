@@ -32,12 +32,12 @@ urlpatterns = [
     path("update/<int:id>", article__update__view, name="update-article"),
     path("delete/<int:id>", article__delete__view, name="delete-article"),
     path("article-detail/<int:id>", article__detail__view, name="article-detail"),
-    # path("article-detail/<slug:slug>", article__detail__view, name="article-detail"),
     path("", home__view, name="home"),
     path("account/", include("account.urls")),
     # ckeditor config
     path("ckeditor/", include("ckeditor_uploader.urls")),
     path("comment/<int:id>", add__comment__view, name="comment"),
+    path("comment-del/<int:id>",  comment__delete__view, name="comment-delete"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 handler404 = "article.views.custom_404"  # new

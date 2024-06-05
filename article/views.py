@@ -89,7 +89,12 @@ def article__detail__view(request, id):
     # article = Article.objects.get(id=id)
     # article = Article.objects.filter(id=id).first()
     article = get_object_or_404(Article, id=id)
-    context = {"article": article}
+    # comments = Comment.objects.all().article_set=id
+    comments = Comment.objects.filter(article=article)
+    context = {
+        "article": article,
+        "comments": comments,
+    }
     return render(request, "article-detail.html", context)
 
 
@@ -102,8 +107,17 @@ def add__comment__view(request, id):
         comment_author = request.POST.get("comment_author")
         comment_content = request.POST.get("comment_content")
 
-        newComment = Comment(comment_author, comment_content)
+        newComment = Comment(
+            comment_author=comment_author, comment_content=comment_content
+        )
         newComment.article = article
         newComment.save()
-        messages.success("Successfulyy, Add  Comment To Article")
+        messages.success(request, "Successfulyy, Add  Comment To Article")
     return redirect(reverse("article-detail", kwargs={"id": id}))
+
+@login_required(login_url="account:login")
+def comment__delete__view(request, id):
+    comment = get_object_or_404(Comment, id=id)
+    comment.delete()
+    messages.success(request, "Successfullt Delete Comment")
+    return redirect(reverse("article-detail", kwargs={"id": comment.article_id}))
