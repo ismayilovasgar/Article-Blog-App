@@ -24,8 +24,7 @@
       
 
 
-      {% comment %} ************************* {% endcomment %}
-
+{% comment %} ************************* {% endcomment %}
 <div class="card__contaier">
             <div class="card">
                     {% if article.image %}
@@ -48,9 +47,26 @@
                   </div>
               </div>
   </div>
+{% comment %} ************************* {% endcomment %}
 
+<div class="comment_container">
+  <h3>Comments </h3>
+  <form action="{% url 'comment' article.id %}" method="post">
+    {% csrf_token %}
 
+    <div class="form__comment__author">
+      <label for="commentAuthor" >Author</label>
+      <input type="text" name="comment_author" placeholder="Enter Author Name..." id="commentAuthor">
+    </div>
 
-      {% comment %} ************************* {% endcomment %}
+    <div class="form__comment__content">
+      <label for="commentContent" >Content Text</label>
+      <input type="text" name="comment_content" placeholder="Enter Content Text..." id="commentContent">
+    </div>
+
+    <button type="submit" class="comment__btn">Send</button>
+    
+  </form>
+</div>
 
     {% endblock body %}

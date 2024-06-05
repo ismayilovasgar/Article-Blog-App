@@ -1,4 +1,5 @@
 from django.shortcuts import redirect, render, get_object_or_404
+from django.urls import reverse
 from .models import *
 from .articleform import ArticleForm
 from django.contrib import messages
@@ -75,22 +76,34 @@ def addarticle__view(request):
     return render(request, "addarticle.html", context)
 
 
+# dashboard
 @login_required(login_url="account:login")
 def dashboard__view(request):
     articles = Article.objects.filter(author=request.user)
     return render(request, "dashboard.html", {"articles": articles})
 
 
+# My Article View
 @login_required(login_url="account:login")
 def article__detail__view(request, id):
-    # def article__detail__view(request, id):
-
-    ##article = Article.objects.get(id=id)
-    # context = {"article": article}
-    # return render(request, "article-detail.html", context)
-    # article = Article.objects.filter(slug=slug).first()
-
+    # article = Article.objects.get(id=id)
     # article = Article.objects.filter(id=id).first()
     article = get_object_or_404(Article, id=id)
     context = {"article": article}
     return render(request, "article-detail.html", context)
+
+
+# Comment
+@login_required(login_url="account:login")
+def add__comment__view(request, id):
+    article = get_object_or_404(Article, id=id)
+
+    if request.method == "POST":
+        comment_author = request.POST.get("comment_author")
+        comment_content = request.POST.get("comment_content")
+
+        newComment = Comment(comment_author, comment_content)
+        newComment.article = article
+        newComment.save()
+        messages.success("Successfulyy, Add  Comment To Article")
+    return redirect(reverse("article-detail", kwargs={"id": id}))

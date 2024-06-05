@@ -37,6 +37,7 @@ urlpatterns = [
     path("account/", include("account.urls")),
     # ckeditor config
     path("ckeditor/", include("ckeditor_uploader.urls")),
+    path("comment/<int:id>", add__comment__view, name="comment"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 handler404 = "article.views.custom_404"  # new
