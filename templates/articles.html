@@ -4,52 +4,55 @@
   Our Blogs 
   {% endblock page__title %} 
 {% block body %}
-  <h1>Our Blogs</h1>
+{% comment %} <div class="search__container"> {% endcomment %}
+  <div class="search__form">
+    <form method ="post">
+      {% csrf_token %}
 
-{% comment %} <div class="card_container">
-  <ul class="card_lists">
-    {% for article in articles %}
+      <input name ="keyword" type="text" class="input_keyword" placeholder="Search...">
+      <button type="sutbmit" class="search__form__btn">Search</button>
+    </form>
+  </div>
+{% comment %} </div> {% endcomment %}
 
-    <li class="card">
-      <h2 class="card_title">{{article.id}}.{{article.title}}</h2>
-      <p class="card_content">{{ article.content|safe}}</p>
-
-      <div class="card_footer">
-        <p>{{ article.created_date}}</p>
-        <p>{{ article.author}}</p>
-      </div>
-      <p></p>
-    </li>
-    {% endfor %}
-  </ul>
-</div> {% endcomment %}
+ 
 {% comment %} **************************************** {% endcomment %}
 
-<div class="card__contaier">
-      {% for article in articles %}
-          <div class="card">
-                  {% if article.image %}
-                  <img src="{{ article.image.url }}" alt="" />
-                  {% else %}
-                  <img src=""" alt="" />
-                  {% endif %}
+{% if articles %}
+  <div class="card__contaier">
+    {% for article in articles %}
+      <div class="card">
+              {% if article.image %}
+              <img src="{{ article.image.url }}" alt="" />
+              {% else %}
+              <img src=""" alt="" />
+              {% endif %}
 
-                  <div class="card__title">{{article.id}}.{{article.title}}</div>
-                  <div class="card__content">{{ article.content|safe}}</div>
-                  <div class="card__footer">
-                    <div class="created__date">{{ article.created_date}}</div>
-                  {% comment %} <div class="created__date">{{ article.created_date}}</div> {% endcomment %}
-                    <div class="card__actions">
-                      <a href="{% url 'delete-article' article.id %}">
-                        <i class="fa-solid fa-trash"></i>
-                      </a>
-                      <a href="{% url 'update-article' article.id %}">
-                        <i class="fa-solid fa-pen-to-square"></i>
-                      </a>
-                    </div>
+              <div class="card__title">{{article.id}}.{{article.title}}</div>
+              <div class="card__content">{{ article.content|safe}}</div>
+              <div class="card__footer">
+                <div class="created__date">{{ article.created_date}}</div>
+              {% comment %} <div class="created__date">{{ article.created_date}}</div> {% endcomment %}
+                <div class="card__actions">
+                  <a href="{% url 'delete-article' article.id %}">
+                    <i class="fa-solid fa-trash"></i>
+                  </a>
+                  <a href="{% url 'update-article' article.id %}">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                  </a>
                 </div>
             </div>
-      {% endfor %}
-</div>
+        </div>
+    {% endfor %}
+  </div>
+{% else %}
+
+    <div class="card__contaier">
+      <div class="alert__warning">Not Found Article that you want </div>
+    </div>
+
+{% endif %}
+
+     
 
 {% endblock body %}

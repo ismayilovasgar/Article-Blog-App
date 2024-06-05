@@ -2,6 +2,7 @@ from django.db import models
 from ckeditor.fields import RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.utils.text import slugify
+from django.utils.html import strip_tags
 
 
 # Create your models here.
@@ -28,21 +29,26 @@ class Article(models.Model):
         self.slug = slugify(self.title)
         super().save(*args, **kwargs)
 
+    @property
+    def article_content_safe(self):
+        return strip_tags(self.content)
 
-# class Article_Writer(models.Model):
-#     username = models.TextField(unique=True, max_length=40)
-#     sluq = models.SlugField(
-#         blank=True,
-#         unique=True,
-#         db_index=True,
-#         editable=False,
-#         null=True,
-#     )
-#     articles = models.ForeignKey(Article, null=True, default=1)
 
-#     def save(self, *args, **kwargs):
-#         self.slug = slugify(self.username)
-#         super().save(*args, **kwargs)
+# Create your models here.
 
-#     def __str__(self) -> str:
-#         return f"{self.username}"
+
+class Comment(models.Model):
+    article = models.ForeignKey(
+        Article, on_delete=models.CASCADE, related_name="comments"
+    )
+
+    comment_author = models.CharField(max_length=50)
+    comment_content = RichTextField()
+    comment_date = models.DateTimeField(auto_now_add=True)
+
+    @property
+    def comment_content_safe(self):
+        return strip_tags(self.comment_content)
+
+    def __str__(self) -> str:
+        return f"{self.comment_author}"

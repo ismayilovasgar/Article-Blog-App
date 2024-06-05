@@ -25,7 +25,11 @@ def contact__view(request):
 
 @login_required
 def articles__view(request):
-    articles = Article.objects.all()
+    keyword = request.POST.get("keyword")
+    if keyword:
+        articles = Article.objects.filter(title__contains=keyword)
+    else:
+        articles = Article.objects.all()
     return render(request, "articles.html", {"articles": articles})
 
 

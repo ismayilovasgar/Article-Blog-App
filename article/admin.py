@@ -1,32 +1,29 @@
 from django.contrib import admin
-from .models import *
+from .models import Article, Comment
 
 
+@admin.register(Article)
 # Register your models here.
 class ArticleAdmin(admin.ModelAdmin):
-    list_display = (
-        "author",
-        "title",
-        "content",
-        # "created_date",
-        "slug",
-    )
-    search_fields = (
-        "author",
-        "title",
-    )
-    list_filter = (
-        "author",
-        "title",
-        "created_date",
-    )
+    list_display = ["author", "title", "article_content_safe"]
+    list_display_links = ["title", "author"]
+    search_fields = ["author", "title"]
+    list_filter = ["author", "title", "created_date"]
+
+    class Meta:
+        model = Article
 
 
-class Article_WriterAdmin(admin.ModelAdmin):
-    list_display = ("username",)
-    list_filter = ("username",)
-    search_fields = ("username",)
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ["comment_author", "comment_content_safe"]
+    list_display_links = ["comment_author"]
+    search_fields = ["comment_author", "comment_content"]
+    list_filter = ["comment_date", "comment_author"]
+
+    class Meta:
+        model = Comment
 
 
-admin.site.register(Article, ArticleAdmin)
-# admin.site.register(Article_Writer, Article_WriterAdmin)
+# admin.site.register(Article, ArticleAdmin)
+# admin.site.register(Comment, CommentAdmin)
