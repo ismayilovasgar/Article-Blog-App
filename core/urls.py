@@ -25,7 +25,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("about/", about__view, name="about"),
-    path("contact/", contact__view, name="contact"),
+    # path("contact/", contact__view, name="contact"),
     path("articles/", articles__view, name="articles"),
     path("dashboard/", dashboard__view, name="dashboard"),
     path("add-article/", addarticle__view, name="add-article"),
@@ -37,7 +37,8 @@ urlpatterns = [
     # ckeditor config
     path("ckeditor/", include("ckeditor_uploader.urls")),
     path("comment/<int:id>", add__comment__view, name="comment"),
-    path("comment-del/<int:id>",  comment__delete__view, name="comment-delete"),
+    path("comment-del/<int:id>", comment__delete__view, name="comment-delete"),
+    path("contact/", include("contact.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 handler404 = "article.views.custom_404"  # new

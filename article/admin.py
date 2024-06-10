@@ -2,8 +2,8 @@ from django.contrib import admin
 from .models import Article, Comment
 
 
-@admin.register(Article)
 # Register your models here.
+@admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
     list_display = ["author", "title", "article_content_safe"]
     list_display_links = ["title", "author"]
@@ -25,5 +25,9 @@ class CommentAdmin(admin.ModelAdmin):
         model = Comment
 
 
+
+
+# old way
 # admin.site.register(Article, ArticleAdmin)
 # admin.site.register(Comment, CommentAdmin)
+# admin.site.register(Contact, ContactAdmin)
