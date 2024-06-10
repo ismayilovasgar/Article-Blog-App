@@ -165,4 +165,4 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'asgar.ismayilov.21@gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_PASSWORD = 'Your gmail password'
+EMAIL_HOST_PASSWORD = 'jjxaazzfdhywevnl'
