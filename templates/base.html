@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -16,18 +17,29 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    {% block custom_css %}
     <link rel="stylesheet" href="{% static './style.css' %}" />
+    {% endblock custom_css %}
     <title>{% block page__title %} MY SITE {% endblock page__title %}</title>
   </head>
   <body>
     <div class="navbar">
       <div class="nav__logo"><img src="{% static 'logo.png' %}" alt="" /></div>
-
+       
       <div class="nav__links">
         <ul >
+          <div class="navbar__flags">
+            <li class="flags">
+                {% if request.LANGUAGE_CODE == 'az' %}
+                <a class="flags_link" href="{% url 'set-language' 'en' %}">EN</a>
+                {% else %}
+                <a  class="flags_link" href="{% url 'set-language' 'az' %}">AZ</a>
+                {% endif %}
+            </li>
+          </div> 
           <li><a href="{% url 'home' %}">Home</a></li>
           <li><a href="{% url 'about' %}">About</a></li>
-          <li><a href="{% url 'contact:message' %}">Contact</a></li>
+          <li><a href="{% url 'contact' %}">Contact</a></li>
 
           {% if request.user.is_authenticated %}
           {% comment %} <li id="dropdown">
@@ -63,8 +75,10 @@
         {% endif %}
         {% endfor %}
     {% endif %} {% endcomment %}
-    <div class="container">
-      {% block body %} {% endblock body %}
+    <div class="mycontainer">
+
+     
+    {% block body %} {% endblock body %}
     </div>
 
     <script src="{% static 'app.js' %}"></script>

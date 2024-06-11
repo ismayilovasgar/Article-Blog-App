@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 
+# Translate  page
+from django.utils.translation import gettext_lazy as _
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -51,6 +54,7 @@ INSTALLED_APPS = [
 
 
 MIDDLEWARE = [
+    "django.middleware.locale.LocaleMiddleware",  # New middleware
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -114,15 +118,28 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
-LANGUAGE_CODE = "en-us"
+LANGUAGE_CODE = "en"
 
-TIME_ZONE = "Asia/Baku"
+TIME_ZONE = "UTC"
+
+
+# * Text Translate Configuration
+LANGUAGES = [
+    ("en", _("English")),
+    ("az", _("Azerbaijani")),
+]
+
+LANGUAGE_COOKIE_NAME = "django_language"
+
+LOCALE_PATHS = [
+    BASE_DIR / "locale",
+]
+
+USE_L10N = True
 
 USE_I18N = True
 
 USE_TZ = True
-
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
@@ -165,4 +182,4 @@ EMAIL_HOST = "smtp.gmail.com"
 EMAIL_HOST_USER = "asgar.ismayilov.21@gmail.com"
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_PASSWORD = "mypassword"
+EMAIL_HOST_PASSWORD = "jjxaazzfdhywevnl"

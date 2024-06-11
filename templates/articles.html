@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% load static %}
   {% block page__title %} 
   Our Blogs 
@@ -27,12 +28,12 @@
               {% else %}
               <img src=""" alt="" />
               {% endif %}
-
-              <div class="card__title">{{article.id}}.{{article.title}}</div>
+            
+              <div class="card__title">{{article.id}}.{{ the_title }}  </div>
+              {% comment %} <div class="card__title">{{article.id}}.{{article.title}}</div> {% endcomment %}
               <div class="card__content">{{ article.content|safe}}</div>
               <div class="card__footer">
                 <div class="created__date">{{ article.created_date}}</div>
-              {% comment %} <div class="created__date">{{ article.created_date}}</div> {% endcomment %}
                 <div class="card__actions">
                   <a href="{% url 'delete-article' article.id %}">
                     <i class="fa-solid fa-trash"></i>

@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  text-decoration: none;
+  text-decoration: none !important;
   list-style: none;
 }
 body {
@@ -10,7 +10,7 @@ body {
   color: black;
 }
 
-.container {
+.mycontainer {
   width: 1200px;
   max-width: 90%;
   margin: 0 auto;
@@ -18,7 +18,7 @@ body {
 
 a,
 i {
-  color: black;
+  color: black !important;
 }
 .navbar {
   display: flex;
@@ -46,11 +46,11 @@ i {
   font-size: 24px;
 }
 .nav__links ul li a:hover {
-  color: white;
+  color: white !important;
 }
 
 .nav__links ul li i:hover {
-  color: white;
+  color: white !important;
 }
 
 .btn {
@@ -490,4 +490,18 @@ textarea {
   font-size: 18px;
   font-weight: bold;
   margin: 0 0 40px 0;
+}
+
+/** Flags */
+.navbar__flags {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.flags a {
+  display: block;
+  font-size: 22px;
+  color: rgb(34, 23, 23);
+  font-weight: 900;
 }

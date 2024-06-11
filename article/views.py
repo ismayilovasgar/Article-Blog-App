@@ -5,6 +5,14 @@ from .articleform import ArticleForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
+#  Trasnlator Page
+from django.utils import translation
+from django.urls.base import resolve, reverse
+from django.urls.exceptions import Resolver404
+from urllib.parse import urlparse
+from django.http import HttpResponseRedirect
+from django.conf import settings
+
 
 # Create your views here.
 def home__view(request):
@@ -115,9 +123,11 @@ def add__comment__view(request, id):
         messages.success(request, "Successfulyy, Add  Comment To Article")
     return redirect(reverse("article-detail", kwargs={"id": id}))
 
+
 @login_required(login_url="account:login")
 def comment__delete__view(request, id):
     comment = get_object_or_404(Comment, id=id)
     comment.delete()
     messages.success(request, "Successfullt Delete Comment")
     return redirect(reverse("article-detail", kwargs={"id": comment.article_id}))
+
